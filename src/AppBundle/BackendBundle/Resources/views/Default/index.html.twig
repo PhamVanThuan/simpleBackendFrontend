@@ -1,0 +1,18 @@
+{% extends ':backend:backend.html.twig' %}
+
+{% block page %}
+    {% embed ":backend:page.html.twig" %}
+        {% block pagetitle %}
+            Backend Index
+        {%endblock pagetitle %}
+        {% block pagecontent %}
+            <div  class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                <p>Bienvenido a la página principal del gestor gitFpt.</p>
+                <p>Desde aquí podrá gestionar sus cuentas ftp y git para realizar todas las operaciones necesarias en el frontend.</p>
+            </div>
+        {%endblock pagecontent %} 
+    {% endembed %}
+
+{% endblock page %}
+
+

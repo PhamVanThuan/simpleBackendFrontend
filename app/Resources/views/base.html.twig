@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        {% block meta %}
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <!-- Meta, title, CSS, favicons, etc. -->
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% endblock meta  %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block origenStyles %}
+             <!-- Bootstrap -->
+            <link href="{{ asset('web/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+            <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
+            {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+        {% endblock origenStyles %}
+        {% block stylesheets %}
+           
+        {% endblock stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('web/favicon.ico') }}" />
+        
+         {% block javascripts %}
+          
+        {% endblock %}
+    </head>
+    <body class="nav-md">
+        {% block body %}
+
+        {% endblock %}
+
+       
+    </body>
+</html>

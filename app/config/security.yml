@@ -1,0 +1,37 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                default_target_path: /login_role_checker
+                always_use_default_target_path: true
+                #csrf_token_generator: security.csrf.token_manager
+                # if you are using Symfony < 2.8, use the following config instead:
+                # csrf_provider: form.csrf_provider
+
+            logout:       true
+            anonymous:    true
+        login_firewall:
+            pattern:   ^/login$
+            anonymous: ~
+        secured_area:
+            pattern:    ^/
+            form_login: ~
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/backend, roles: [ROLE_SUPER_ADMIN] }
+        - { path: ^/front, roles: [ROLE_ADMIN , ROLE_SUPER_ADMIN]}
+        - { path: ^/, roles: [IS_AUTHENTICATED_ANONYMOUSLY , ROLE_ADMIN , ROLE_SUPER_ADMIN]}

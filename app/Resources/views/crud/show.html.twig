@@ -1,0 +1,51 @@
+{% extends ':backend:backend.html.twig' %}
+
+{% block page %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel " >
+                <div class="x_title">
+                    <h2>{% block pagetitle %}{%endblock pagetitle %} </h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        {% block entitydata %}
+                            {% for property in arrProperties %}
+                                <div class="form-group">
+                                    <label class="control-label required" for="{{property.name}}">{{property.name}}</label>
+                                    <input id ="{{property.name}}" type="text" disabled="true" required="required" class="form-control col-md-7 col-xs-12" value="{{ property.property }}">
+                                </div>
+                            {% endfor %}
+                        {%endblock entitydata  %}
+                    </form>
+
+                    {{ form_start(delete_form) }}
+                    <button id="del" class="hidden" type="submit" class="btn btn-sm btn-info"> 
+                        Delete
+                    </button>
+                    {{ form_end(delete_form) }}
+
+                    <a href="{% block edit %}{% endblock edit %}"> 
+                        <button id="editV"  type="button" class="btn btn-sm btn-success"> 
+                            Edit
+                        </button>
+                    </a>
+
+                    <button id="delV"  type="button" class="btn btn-sm btn-danger" onClick="$('#del').click();"> 
+                        Delete
+                    </button>
+                    <a href="{% block return %}{% endblock return %}">
+                        <button id="back"  type="button" class="btn btn-sm btn-info" > 
+                            <i class="fa fa-reply-all"></i> 
+                        </button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock page %}
+

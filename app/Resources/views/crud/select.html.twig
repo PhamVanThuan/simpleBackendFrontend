@@ -1,0 +1,75 @@
+{% extends ':backend:backend.html.twig' %}
+
+{% block page %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel " >
+                <div class="x_title">
+                    <h2>{% block pagetitle %}{%endblock pagetitle %} </h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                        <thead>
+                            <tr class="headings">
+                                {%block headerselect %}
+                                    {% for property in arrPropertiesName %}
+                                        <th class="column-title">{{property.name}} </th>
+                                        {% endfor %}
+                                    <th class="column-title">Ver</th>
+                                    <th class="column-title no-link last"><span class="nobr">Editar</span></th>
+                                    <th class="bulk-actions" colspan="7">
+                                        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                    </th>
+                                {% endblock headerselect %}
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {%block tablecont %}
+                                {% set i = 0 %}
+                                {% for el in arrEl %}
+                                    
+                                    <tr class="even pointer">
+                                        {% for p in el %}                                        
+                                            <td><p class="pTd">{{ p.property}}</p></td>
+                                        {% endfor %}
+                                        <td class="">
+                                            <a href="{{ path(show, { 'id': elements[i].id}) }}">
+                                                <button type="button" class="btn btn-sm btn-info"> 
+                                                    Ver
+                                                </button>
+                                            </a>
+                                        </td> 
+                                        <td class=" last">
+                                            <a href="{{ path('service_edit', { 'id': elements[i].id }) }}">
+                                                <button type="button" class="btn btn-sm btn-warning">
+                                                    Editar
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% set i = i+1 %}
+                                {% endfor %}
+                            {%endblock tablecont %}
+
+                        </tbody>
+
+                    </table>
+
+                    <a href="{%block newelement_path %}{% endblock newelement_path %}">
+                        <button id="back"  type="button" class="btn btn-success" > 
+                        {%block newelement_text %}{% endblock newelement_text %}
+                    </button>
+                </a>   
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock page %}
+
+

@@ -1,0 +1,47 @@
+{% extends ':backend:backend.html.twig' %}
+
+{% block page %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel " >
+                <div class="x_title">
+                    <h2>{% block pagetitle %}{%endblock pagetitle %} </h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    {{ form_start(edit_form) }}
+
+                    {{ form_widget(edit_form) }}                    
+                    <button id="edit" class="hidden" type="submit" class="btn btn-sm btn-info"> 
+                        Edit
+                    </button>
+                    {{ form_end(edit_form) }}
+
+                    {{ form_start(delete_form) }}
+                    <button id="del" class="hidden" type="submit" class="btn btn-sm btn-info"> 
+                        Delete
+                    </button>
+                    {{ form_end(delete_form) }}
+
+                    {#<button id="editV"  type="button" class="btn btn-sm btn-success" onClick="$('#edit').click();"> 
+                        Edit
+                    </button>
+                    <button id="delV"  type="button" class="btn btn-sm btn-danger" onClick="$('#del').click();"> 
+                        Delete
+                    </button>#}
+                    
+                     <a href="{% block return %}{% endblock return %}">
+                       <button id="back"  type="button" class="btn btn-sm btn-info" > 
+                       <i class="fa fa-reply-all"></i> 
+                    </button>
+</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock page %}
+

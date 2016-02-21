@@ -1,0 +1,27 @@
+{% extends ':crud:show.html.twig' %}
+
+{% block pagetitle %}Service details{%endblock pagetitle %} 
+
+{% block return %}{{ path('user_index') }}{% endblock return %}
+
+{% block edit %}{{ path('user_edit', { 'id': user.id }) }}{% endblock edit %}
+
+{% block entitydata %}
+
+    <div class="form-group">
+        <label class="control-label required" for="user_name">id</label>
+        <input type="text" disabled="true" required="required" class="form-control col-md-7 col-xs-12" value="{{ user.id }}">
+    </div>
+
+    <div class="form-group">  
+        <label class="control-label required" for="user_name">Username</label>
+        <input type="text"  disabled="true" required="required" class="form-control col-md-7 col-xs-12" value="{{ user.username }}">       
+    </div>
+
+    <div class="form-group">
+        <label class="control-label required" for="user_name">Email</label>
+        <input type="text"  disabled="true" required="required" class="form-control col-md-7 col-xs-12" value="{{ user.email }}">
+    </div>
+
+
+{%endblock entitydata  %}

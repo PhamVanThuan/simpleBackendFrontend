@@ -1,0 +1,35 @@
+{% extends ':backend:backend.html.twig' %}
+
+{% block page %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel " >
+                <div class="x_title">
+                    <h2>{% block pagetitle %}{%endblock pagetitle %} </h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button id="new" class="hidden"  type="submit" value="Create" />
+                    {{ form_end(form) }}
+
+                    <button id="newV" type="button" class="btn btn-sm btn-success" onClick="$('#new').click();"> 
+                        {% block newBtnText %}Crear{% endblock newBtnText %}
+                    </button>
+
+                    <a href="{% block return %}{% endblock return %}">
+                        <button id="back"  type="button" class="btn btn-sm btn-info" > 
+                            <i class="fa fa-reply-all"></i> 
+                        </button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock page %}
+

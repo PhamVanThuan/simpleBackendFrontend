@@ -1,0 +1,7 @@
+{% extends ':crud:show.html.twig' %}
+
+{% block pagetitle %}Service details{%endblock pagetitle %} 
+
+{% block return %}{{ path('service_index') }}{% endblock return %}
+
+{% block edit %}{{ path('service_edit', { 'id': service.id }) }}{% endblock edit %}

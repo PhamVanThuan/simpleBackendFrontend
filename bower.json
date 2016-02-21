@@ -1,0 +1,21 @@
+{
+  "name": "gitFtpSymfony",
+  "authors": [
+    "Jaime Cardona <jaime@guruinformatico.com>"
+  ],
+  "description": "Git and Ftp control",
+  "main": "main",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "http://guruinformatico.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

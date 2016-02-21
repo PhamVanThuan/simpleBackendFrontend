@@ -1,0 +1,35 @@
+{% extends ':crud:select.html.twig' %}
+
+{% block pagetitle %}User List{%endblock pagetitle %} 
+
+{% block headerselect %}
+    <th class="column-title">Username </th>
+    <th class="column-title">Email </th>
+    <th class="column-title">Roles </th>
+    <th class="column-title no-link last"><span class="nobr">Edit</span></th>
+    <th class="bulk-actions" colspan="7">
+        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+    </th>
+{%endblock headerselect %} 
+
+
+{% block tablecont %}
+    {% for user in users %}
+        <tr class="even pointer">
+            <td><p class="pTd">{{ user.username }}</p></td>
+            <td><p class="pTd">{{ user.email}}</p></td>
+{#            <td><p class="pTd">{{ user.roles}}</p></td>#}
+            <td class="">
+                <button type="button" class="btn btn-sm btn-info"> 
+                    <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                </button>
+            </td> 
+            <td class=" last">
+                <button type="button" class="btn btn-sm btn-warning">
+                    <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock tablecont %}
+{%block newelement %}<a href="{{ path('user_new') }}">Create a new entry</a>{% endblock newelement %}
