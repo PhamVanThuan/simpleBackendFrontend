@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: /var/www/udllanera.com/public_html/app/config/routing_dev.yml
+    resource: /var/www/html/back/simpleBackendFrontend/app/config/routing_dev.yml
